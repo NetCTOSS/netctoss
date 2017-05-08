@@ -11,7 +11,7 @@
             http://www.springframework.org/schema/task
             http://www.springframework.org/schema/task/spring-task-4.1.xsd">
 
-    <context:component-scan base-package=" org.framestudy.springmvc02.sysmag.utils" />
+    <context:component-scan base-package=" com.netctoss.sys.util" />
 
     <task:scheduler id="taskScheduler" pool-size="100" />
 

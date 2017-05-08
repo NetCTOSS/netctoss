@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是form表单数据</title>
+    <!-- 引入css文件，不限顺序 -->
+    <link rel="stylesheet" href="../themes/default/easyui.css" type="text/css"/>
+    <link rel="stylesheet" href="../themes/icon.css" type="text/css"/>
+
+    <!-- 引入js文件，有顺序限制 -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+</head>
+<body style="margin: 1px;">
+    <div>
+        <div title="首页" data-options="iconCls:'icon-home',selected:1,fit:true" style="padding: 20px;">
+            <table class="easyui-datagrid" toolbar="#tb" title="用户列表" iconCls="icon-users"
+                    width="100%">
+                <thead>
+                    <tr>
+                        <th field="checkbox"><input type="checkbox"/></th>
+                        <th field="userName" width="13%" align="center">真实用户名</th>
+                        <th field="loginName" width="13%" align="center">登录名</th>
+                        <th field="password" width="10%" align="center">密码</th>
+                        <th field="age" width="8%" align="center">年龄</th>
+                        <th field="gender" width="8%" align="center">性别</th>
+                        <th field="birthday" width="13%" align="center">出生年月</th>
+                        <th field="home_address" width="16%" align="center">家庭住址</th>
+                        <th field="identity" width="18%" align="center">身份证号码</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name01</td><td>2323</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name02</td><td>4612</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name03</td><td>2323</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name04</td><td>4612</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name05</td><td>2323</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name06</td><td>4612</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name07</td><td>2323</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name08</td><td>4612</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name09</td><td>2323</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"/></td><td>name10</td><td>4612</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div id="tb">
+                <div>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut',plain:true">剪切</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">编辑</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-print',plain:true">打印</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true">查询</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

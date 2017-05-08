@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>easyui</title>
+    <!-- 引入css文件，不限顺序 -->
+    <link rel="stylesheet" href="../themes/default/easyui.css" type="text/css"/>
+    <link rel="stylesheet" href="../themes/icon.css" type="text/css"/>
+
+    <!-- 引入js文件，有顺序限制 -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+<div id="layId" style="height: 800px;width:auto;" class="easyui-layout" data-options="fit:true">
+    <!--北边-->auto
+    <div data-options="region:'north'" style="margin: 0px;height: 130px;background-color: #E0ECFF;">
+        <div style="padding: 0px;margin: 0px;">
+            <table>
+                <tr>
+                    <td><img src="../img/netctoss.jpg"/></td>
+                    <td><h1>NETCTOSS后台营运系统</h1></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--南边-->
+    <div data-options="region:'south'" style="height: 30px;background-color: #E0ECFF;text-align: center;line-height: 28px;">
+        <span style="font-size: 13px;">XXX所有版权</span>
+        <a href="form.html" style="text-decoration: none;padding-left: 10px;font-size: 13px">关于我们</a>
+    </div>
+    <!--西边-->
+    <div data-options="region:'west',split:true,border:true,title:'导航菜单',iconCls:'icon-nav',disabled:true" style="width: 200px;">
+        <div id="accordionId" class="easyui-accordion" data-options="fit:true,border:true,animate:true,multiple:false,selected:-1">
+            <div title="用户管理" data-options="iconCls:'icon-usermag'" style="padding: 10px;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-accountInfo',plain:true">账务账号管理</a><p>
+                <!--disabled:是否禁用-->
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-business',plain:true">业务账号管理</a><p>
+            </div>
+            <div title="资费管理" data-options="iconCls:'icon-expenses'" style="padding: 10px;">
+                <!-- tree树 -->
+                <ul id="treeID" class="easyui-tree" data-options="lines:true">
+                    <li>
+                        <span>增加人事</span>
+                    </li>
+                    <li>
+                        <span>查询人事</span>
+                        <ul>
+                            <li>
+                                <span>分页查询人事</span>
+                                <ul>
+                                    <li>
+                                        <span>模糊分页查询人事</span>
+                                    </li>
+                                    <li>
+                                        <span>精确分页查询人事</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>查询所有人事</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div title="权限管理" data-options="iconCls:'icon-permission',collapsible:true" style="padding:10px;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-role',plain:true">角色管理</a><p>
+                <!--disabled:是否禁用-->
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-authority',plain:true">权限管理</a><p>
+            </div>
+            <div title="日志管理" data-options="iconCls:'icon-log',collapsible:true" style="padding:10px;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-loginLog',plain:true">登录日志管理</a><p>
+                <!--disabled:是否禁用-->
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-operationLog',plain:true">操作日志管理</a><p>
+            </div>
+            <div title="报表管理" data-options="iconCls:'icon-reportform',collapsible:true" style="padding:10px;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-graphReport',plain:true">账单图形报表</a><p>
+                <!--disabled:是否禁用-->
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-businessraphReport',plain:true">业务图形报表</a><p>
+            </div>
+            <div title="账单查询管理"data-options="iconCls:'icon-account'" style="padding:10px;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-accountSearch',plain:true">账单查询</a><p>
+            </div>
+            <div title="账务查询管理" data-options="iconCls:'icon-billing',collapsible:true" style="padding:10px;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-billingSearch',plain:true">账务查询</a><p>
+            </div>
+            <div title="个人信息管理" data-options="iconCls:'icon-userInfo',collapsible:true" style="padding:10px;">
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-scan_userInfo',plain:true">个人信息</a><p>
+                <!--disabled:是否禁用-->
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-pwd',plain:true">修改密码</a><p>
+                <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-out',plain:true">退出系统</a><p>
+            </div>
+        </div>
+    </div>
+    <!--中间-->
+    <div data-options="region:'center'">
+        <!--fit自适应父容器
+            border布局边框
+        -->
+        <div id="tabsID" class="easyui-tabs" data-options="border:false,selected:-1,fit:true">
+            <div title="首页" data-options="iconCls:'icon-home',selected:1,fit:true" style="padding: 20px;">
+                <table class="easyui-datagrid" title="用户列表" iconCls="icon-users"
+                       toolbar="#tb" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th field="checkbox"><input type="checkbox"/></th>
+                            <th field="userName" width="13%" align="center">真实用户名</th>
+                            <th field="loginName" width="13%" align="center">登录名</th>
+                            <th field="password" width="10%" align="center">密码</th>
+                            <th field="age" width="8%" align="center">年龄</th>
+                            <th field="gender" width="8%" align="center">性别</th>
+                            <th field="birthday" width="13%" align="center">出生年月</th>
+                            <th field="home_address" width="16%" align="center">家庭住址</th>
+                            <th field="identity" width="18%" align="center">身份证号码</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name01</td><td>2323</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name02</td><td>4612</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name03</td><td>2323</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name04</td><td>4612</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name05</td><td>2323</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name06</td><td>4612</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name07</td><td>2323</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name08</td><td>4612</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name09</td><td>2323</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td><td>name10</td><td>4612</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div id="tb">
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut',plain:true">剪切</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">编辑</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-print',plain:true">打印</a>
+                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true">查询</a>
+                </div>
+
+                <div id="dd" style="display: none;">
+                    <div style="margin: 20px;">
+                        <form id="ff" class="easyui-form" method="post" data-options="novalidate:true"/>
+                            <div style="margin-bottom:20px">
+                                <input class="easyui-textbox" name="name" style="width:100%" data-options="label:'姓名:',required:true">
+                            </div>
+                            <div style="margin-bottom:20px">
+                                <input class="easyui-textbox" name="loginName" style="width:100%" data-options="label:'登录名:',required:true">
+                            </div>
+                            <div style="margin-bottom:20px">
+                                <input class="easyui-textbox" name="age" style="width:100%" data-options="label:'年龄:',required:true">
+                            </div>
+                            <div style="margin-bottom:20px">
+                                <input class="easyui-textbox" name="password" style="width:100%" data-options="label:'密码:',required:true">
+                            </div>
+                           <!-- <div style="margin-bottom:20px">
+                                <input class="easyui-textbox" name="message" style="width:100%;height:60px" data-options="label:'信息:',multiline:true"/>
+                            </div>-->
+                            <div style="margin-bottom:20px">
+                                <select class="easyui-combobox" name="language" label="语言" style="width:100%">
+                                    <option value="ar">Arabic</option>
+                                    <option value="bg">Bulgarian</option>
+                                    <option value="ca">Catalan</option>
+                                    <option value="zh-cht">Chinese Traditional</option>
+                                    <option value="cs">Czech</option>
+                                    <option value="da">Danish</option>
+                                    <option value="nl">Dutch</option>
+                                    <option value="en" selected="selected">English</option>
+                                    <option value="et">Estonian</option>
+                                    <option value="fi">Finnish</option>
+                                    <option value="fr">French</option>
+                                    <option value="de">German</option>
+                                    <option value="el">Greek</option>
+                                    <option value="ht">Haitian Creole</option>
+                                    <option value="he">Hebrew</option>
+                                    <option value="hi">Hindi</option>
+                                    <option value="mww">Hmong Daw</option>
+                                    <option value="hu">Hungarian</option>
+                                    <option value="id">Indonesian</option>
+                                    <option value="it">Italian</option>
+                                    <option value="ja">Japanese</option>
+                                    <option value="ko">Korean</option>
+                                    <option value="lv">Latvian</option>
+                                    <option value="lt">Lithuanian</option>
+                                    <option value="no">Norwegian</option>
+                                    <option value="fa">Persian</option>
+                                    <option value="pl">Polish</option>
+                                    <option value="pt">Portuguese</option>
+                                    <option value="ro">Romanian</option>
+                                    <option value="ru">Russian</option>
+                                    <option value="sk">Slovak</option>
+                                    <option value="sl">Slovenian</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="sv">Swedish</option>
+                                    <option value="th">Thai</option>
+                                    <option value="tr">Turkish</option>
+                                    <option value="uk">Ukrainian</option>
+                                    <option value="vi">Vietnamese</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script type="application/javascript">
+    $(function () {
+        //收起所有的选项
+        $("#treeID").tree("collapseAll");
+
+        var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='form.html'></iframe>";
+
+        $("a").click(function () {
+            var title=$(this).text();
+            title=$.trim(title);
+            if(title=="账务账号管理"){
+                //产生tab选项卡
+                var flag = $("#tabsID").tabs("exists",title);
+                //如果没有打开的话
+                if(!flag) {
+                    //打开选项卡
+                    /*var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='form.html'></iframe>"*/
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-accountInfo"
+                    });
+                }
+            }else if("业务账号管理" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    /*var content="<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='form1.html'></iframe>"*/
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-business"
+                    });
+                }
+            } else if("角色管理" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-role"
+                    });
+                }
+            }else if("权限管理" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-authority"
+                    });
+                }
+            }else if("登录日志管理" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-loginLog"
+                    });
+                }
+            }else if("操作日志管理" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-operationLog"
+                    });
+                }
+            }else if("账单图形报表" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        //"content": "文本",
+                        "href":"form.html",
+                        "iconCls": "icon-graphReport"
+                    });
+                }
+            }else if("业务图形报表" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-businessraphReport"
+                    });
+                }
+            }else if("账单查询" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        //"content": "文本",
+                        "href":"form.html",
+                        "iconCls": "icon-accountSearch"
+                    });
+                }
+            }else if("账务查询" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-billingSearch"
+                    });
+                }
+            }else if("个人信息" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-scan_userInfo"
+                    });
+                }
+            }else if("修改密码" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-pwd"
+                    });
+                }
+            }else if("退出系统" == title) {
+                var flag = $("#tabsID").tabs("exists", title);
+                if (!flag) {
+                    //打开选项卡
+                    $("#tabsID").tabs("add", {
+                        "title": title,
+                        "closable": true,
+                        "content": content,
+                        "iconCls": "icon-out"
+                    });
+                }
+            }
+        });
+
+        $('#treeID').tree({
+            onClick:function (node) {
+                //获取点击树节点的文本
+                var title = node.text;
+                //去空格
+                title = $.trim(title);
+                //产生tab选项卡
+                var flag = $("#tabsID").tabs("exists",title);
+                //如果没有打开的话
+                if(!flag){
+                    //打开选项卡
+                    $("#tabsID").tabs("add",{
+                        "title" : title,
+                        "closable" : true,
+                        "content": content,
+                        /*"href" : "form.html",*/
+                        "iconCls" : "icon-search"
+                    });
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -16,8 +16,7 @@
     <context:component-scan base-package="com.netctoss.sys">
     	
     	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
-    	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    	
     </context:component-scan>
     
 	<context:property-placeholder location="classpath:mysql.properties" ignore-unresolvable="true"/>
@@ -95,7 +94,7 @@
 	</tx:advice>
 	
 	<aop:config>
-		<aop:pointcut expression="execution(* com.netctoss.sys.*mag.servcie.impl.*(..))" id="serviceMethod"/>
+		<aop:pointcut expression="execution(* com.netctoss.sys.*mag.service.impl.*(..))" id="serviceMethod"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>
 	</aop:config>
 	<!-- 开启自动代理 -->

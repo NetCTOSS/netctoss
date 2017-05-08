@@ -12,7 +12,6 @@ public class Pager {
 	private int page;//当前页码
 	private int rows;//每页显示的条数
 	private int index;//起始位置
-	
 	private int totalRows;//总条数
 	private int totalPage;//总页数
 	private List<Object> datas;
@@ -20,9 +19,6 @@ public class Pager {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-
 	public Pager(int page, int rows) {
 		super();
 		this.page = page;

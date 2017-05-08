@@ -4,21 +4,19 @@ import java.util.Date;
 import java.util.List;
 
 import com.netctoss.sys.accountmag.beans.AccountBean;
-import com.netctoss.sys.util.DmssBean;
 
 public class YearTime {
 	private Long id;
-	private Date year;
+	private int year;
 	private int yearTime;
 	private List<DmssBean> dmsses;
-	private AccountBean account;
-	public YearTime(Long id, Date year, int yearTime, List<DmssBean> dmsses, AccountBean account) {
-		super();
-		this.id = id;
-		this.year = year;
-		this.yearTime = yearTime;
-		this.dmsses = dmsses;
-		this.account = account;
+	private Long account_fk_id;
+	private String server;
+	public String getServer() {
+		return server;
+	}
+	public void setServer(String server) {
+		this.server = server;
 	}
 	public YearTime() {
 		super();
@@ -30,10 +28,12 @@ public class YearTime {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getYear() {
+	
+	
+	public int getYear() {
 		return year;
 	}
-	public void setYear(Date year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 	public int getYearTime() {
@@ -45,19 +45,23 @@ public class YearTime {
 	public List<DmssBean> getDmsses() {
 		return dmsses;
 	}
+	
+	public Long getAccount_fk_id() {
+		return account_fk_id;
+	}
 	public void setDmsses(List<DmssBean> dmsses) {
 		this.dmsses = dmsses;
 	}
-	public AccountBean getAccount() {
-		return account;
-	}
-	public void setAccount(AccountBean account) {
-		this.account = account;
+	public void setAccount_fk_id(Long account_fk_id) {
+		this.account_fk_id = account_fk_id;
 	}
 	@Override
 	public String toString() {
-		return "YearTime [id=" + id + ", year=" + year + ", yearTime=" + yearTime + ", dmsses=" + dmsses + ", account="
-				+ account + "]";
+		return "YearTime [id=" + id + ", year=" + year + ", yearTime=" + yearTime + ", dmsses=" + dmsses
+				+ ", account_fk_id=" + account_fk_id + ", server=" + server + "]";
 	}
+	
+	
+	
 	
 }

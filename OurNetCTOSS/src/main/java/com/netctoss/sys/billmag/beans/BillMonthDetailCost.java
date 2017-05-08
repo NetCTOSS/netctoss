@@ -3,40 +3,47 @@ package com.netctoss.sys.billmag.beans;
 import java.util.Date;
 import java.util.List;
 
+import com.netctoss.sys.accountingmag.beans.DmssBean;
 import com.netctoss.sys.accountmag.beans.AccountBean;
 import com.netctoss.sys.bussinessmag.beans.BusinessBean;
 import com.netctoss.sys.tariffmag.beans.Tariff;
-import com.netctoss.sys.util.DmssBean;
 
 public class BillMonthDetailCost {
 	
-private List<BusinessBean> bussinessIds;
-  
    private int monthTime;
-   private Date month;
-   private AccountBean account;
+   private int year;
+   private String userName;
+   private int month;
    private double monthCost;
    private int id;
-   private Tariff tariff;
-   private List<DmssBean> dmss;
-public List<BusinessBean> getBussinessIds() {
-	return bussinessIds;
-}
-public void setBussinessIds(List<BusinessBean> bussinessIds) {
-	this.bussinessIds = bussinessIds;
-}
+   private Long business_fk_id;
+   private Long  account_fk_id;
+   private Long tariff_fk_id;
+   private String tariffType;
+   private double monthcost;
 public int getMonthTime() {
 	return monthTime;
 }
 public void setMonthTime(int monthTime) {
 	this.monthTime = monthTime;
 }
-
-public AccountBean getAccount() {
-	return account;
+public int getYear() {
+	return year;
 }
-public void setAccount(AccountBean account) {
-	this.account = account;
+public void setYear(int year) {
+	this.year = year;
+}
+public String getUserName() {
+	return userName;
+}
+public void setUserName(String userName) {
+	this.userName = userName;
+}
+public int getMonth() {
+	return month;
+}
+public void setMonth(int month) {
+	this.month = month;
 }
 public double getMonthCost() {
 	return monthCost;
@@ -50,24 +57,50 @@ public int getId() {
 public void setId(int id) {
 	this.id = id;
 }
-public Tariff getTariff() {
-	return tariff;
+public Long getBusiness_fk_id() {
+	return business_fk_id;
 }
-public void setTariff(Tariff tariff) {
-	this.tariff = tariff;
+public void setBusiness_fk_id(Long business_fk_id) {
+	this.business_fk_id = business_fk_id;
 }
-public List<DmssBean> getDmss() {
-	return dmss;
+public Long getAccount_fk_id() {
+	return account_fk_id;
 }
-public void setDmss(List<DmssBean> dmss) {
-	this.dmss = dmss;
+public void setAccount_fk_id(Long account_fk_id) {
+	this.account_fk_id = account_fk_id;
 }
-
-public Date getMonth() {
-	return month;
+public Long getTariff_fk_id() {
+	return tariff_fk_id;
 }
-public void setMonth(Date month) {
+public void setTariff_fk_id(Long tariff_fk_id) {
+	this.tariff_fk_id = tariff_fk_id;
+}
+public String getTariffType() {
+	return tariffType;
+}
+public void setTariffType(String tariffType) {
+	this.tariffType = tariffType;
+}
+public double getMonthcost() {
+	return monthcost;
+}
+public void setMonthcost(double monthcost) {
+	this.monthcost = monthcost;
+}
+public BillMonthDetailCost(int monthTime, int year, String userName, int month, double monthCost, int id,
+		Long business_fk_id, Long account_fk_id, Long tariff_fk_id, String tariffType, double monthcost2) {
+	super();
+	this.monthTime = monthTime;
+	this.year = year;
+	this.userName = userName;
 	this.month = month;
+	this.monthCost = monthCost;
+	this.id = id;
+	this.business_fk_id = business_fk_id;
+	this.account_fk_id = account_fk_id;
+	this.tariff_fk_id = tariff_fk_id;
+	this.tariffType = tariffType;
+	monthcost = monthcost2;
 }
 public BillMonthDetailCost() {
 	super();
@@ -75,10 +108,13 @@ public BillMonthDetailCost() {
 }
 @Override
 public String toString() {
-	return "BillMonthDetailCost [bussinessIds=" + bussinessIds + ", monthTime=" + monthTime + ", month=" + month
-			+ ", account=" + account + ", monthCost=" + monthCost + ", id=" + id + ", tariff=" + tariff + ", dmss="
-			+ dmss + "]";
+	return "BillMonthDetailCost [monthTime=" + monthTime + ", year=" + year + ", userName=" + userName + ", month="
+			+ month + ", monthCost=" + monthCost + ", id=" + id + ", business_fk_id=" + business_fk_id
+			+ ", account_fk_id=" + account_fk_id + ", tariff_fk_id=" + tariff_fk_id + ", tariffType=" + tariffType
+			+ ", monthcost=" + monthcost + "]";
 }
+   
+   
 
 
    

@@ -12,23 +12,53 @@ public class billTotalmonthBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 6652752208248393622L;
 	private Long id;
-	private Date month;
+	private int year;
+	private int month;
 	private double monthCost;
 	private String pay_type;
+	@Override
+	public String toString() {
+		return "billTotalmonthBean [id=" + id + ", year=" + year + ", month=" + month + ", monthCost=" + monthCost
+				+ ", pay_type=" + pay_type + ", pay_satus=" + pay_satus + ", account_fk_id=" + account_fk_id
+				+ ", tariff_fk_id=" + tariff_fk_id + "]";
+	}
+	public billTotalmonthBean(Long id, int year, int month, double monthCost, String pay_type, String pay_satus,
+			Long account_fk_id, Long tariff_fk_id) {
+		super();
+		this.id = id;
+		this.year = year;
+		this.month = month;
+		this.monthCost = monthCost;
+		this.pay_type = pay_type;
+		this.pay_satus = pay_satus;
+		this.account_fk_id = account_fk_id;
+		this.tariff_fk_id = tariff_fk_id;
+	}
+	public Long getAccount_fk_id() {
+		return account_fk_id;
+	}
+	public void setAccount_fk_id(Long account_fk_id) {
+		this.account_fk_id = account_fk_id;
+	}
+	public Long getTariff_fk_id() {
+		return tariff_fk_id;
+	}
+	public void setTariff_fk_id(Long tariff_fk_id) {
+		this.tariff_fk_id = tariff_fk_id;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	private String pay_satus;
-	private AccountBean account;
+	private Long  account_fk_id;
+	private Long tariff_fk_id;
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getMonth() {
-		return month;
-	}
-	public void setMonth(Date month) {
-		this.month = month;
-	}
+	
 	public double getMonthCost() {
 		return monthCost;
 	}
@@ -47,33 +77,23 @@ public class billTotalmonthBean implements Serializable {
 	public void setPay_satus(String pay_satus) {
 		this.pay_satus = pay_satus;
 	}
-	public AccountBean getAccount() {
-		return account;
-	}
-	public void setAccount(AccountBean account) {
-		this.account = account;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	public billTotalmonthBean(Long id, Date month, double monthCost, String pay_type, String pay_satus,
-			AccountBean account) {
-		super();
-		this.id = id;
-		this.month = month;
-		this.monthCost = monthCost;
-		this.pay_type = pay_type;
-		this.pay_satus = pay_satus;
-		this.account = account;
-	}
+	
+	
 	public billTotalmonthBean() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "billTotalmonthBean [id=" + id + ", month=" + month + ", monthCost=" + monthCost + ", pay_type="
-				+ pay_type + ", pay_satus=" + pay_satus + ", account=" + account + "]";
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}
+	public int getMonth() {
+		return month;
+	}
+	public void setMonth(int month) {
+		this.month = month;
 	}
 	
 	

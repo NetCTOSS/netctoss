@@ -17,7 +17,7 @@
 	<!-- 关于处理HTTP请求中文乱码的过滤器-->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
-		<filter-class>org.framestudy.ssm.filter.EncodingFilter</filter-class>
+		<filter-class>com.netctoss.sys.filter.EncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
